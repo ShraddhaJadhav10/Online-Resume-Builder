@@ -1,0 +1,383 @@
+<%-- 
+    Document   : template
+    Created on : Sep 26, 2022, 10:57:14 AM
+    Author     : SHRADDHA
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.sql.*"%>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+   <head>
+    <title>Resposive CV design </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'poppins', sans-serif;
+        }
+        
+        body {
+            background: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            min-height: 1000px;
+            margin: 50px;
+            background-color: #fff;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            box-shadow: 0 35px 55px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container .left_side {
+            position: relative;
+            background: #003147;
+            padding: 40px;
+        }
+        
+        .container .right_side {
+            position: relative;
+            background: #fff;
+            padding: 40px;
+        }
+        
+        .profileText {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .profileText .imgBox {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .profileText .imgBox img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profileText h2 {
+            color: #fff;
+            font-size: 1.5em;
+            margin-top: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 600;
+            line-height: 1.4em;
+        }
+        
+        .profileText h2 span {
+            font-size: 0.8em;
+            font-weight: 300;
+        }
+        
+        .contactInfo {
+            padding-top: 40px;
+        }
+        
+        .title {
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        
+        .PersonalDetails ul {
+            position: relative;
+        }
+        
+        .PersonalDetails ul li {
+            position: relative;
+            list-style: none;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        
+        .PersonalDetails ul li .icon {
+            display: inline-block;
+            width: 30px;
+            font-size: 18px;
+            color: #03a9f4;
+        }
+        
+        .PersonalDetails ul li span {
+            color: #fff;
+            font-weight: 300;
+        }
+        
+        .education li {
+            margin-bottom: 15px;
+        }
+        
+        .education {
+            color: #03a9f4;
+            font-weight: 500;
+        }
+        
+        .education :nth-child(2) {
+            color: #fff;
+            font-weight: 500;
+        }
+        
+/*        .education h4 {
+            color: #fff;
+            font-weight: 300;
+        }*/
+        
+        .exp .percent {
+            position: relative;
+            width: 100%;
+            height: 6px;
+            background: #081921;
+            display: block;
+            margin-top: 5px;
+        }
+        
+        .exp .percent div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: #03a9f4;
+        }
+        
+        .project_details {
+            margin-bottom: 50px;
+        }
+        
+        .project_details:last-child {
+            margin-bottom: 0;
+        }
+        
+        .title2 {
+            color: #003147;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            color: #333;
+        }
+        
+        .about .box {
+            display: flex;
+            flex-direction: row;
+            margin: 20px 0;
+        }
+        
+        .about .box .year_company {
+            min-width: 150px;
+        }
+        
+        .about .box .year_company h5 {
+            text-transform: uppercase;
+            color: #848c90;
+            font-weight: 600;
+        }
+        
+        .about .box .text h4 {
+            text-transform: uppercase;
+            color: #2a7da2;
+            font-size: 16px;
+        }
+        
+        .skills .box {
+            position: relative;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .skills .box h4 {
+            text-transform: uppercase;
+            color: #848c99;
+            font-weight: 500;
+        }
+        
+        .skills .box .percent {
+            position: relative;
+            width: 100%;
+            height: 10px;
+            background: #f0f0f0;
+        }
+        
+        .skills .box .percent div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: #03a9f4;
+        }
+        
+        .interest ul {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        .interest ul li {
+            list-style: none;
+            color: #333;
+            font-weight: 500;
+            margin: 10px 0;
+        }
+        
+        .interest ul li .fa {
+            color: #03a9f4;
+            font-size: 18px;
+            width: 20px;
+        }
+        
+        @media(max-width:1000px) {
+            .container {
+                margin: 10px;
+                grid-template-columns: repeat(1, 1fr);
+            }
+            .interest ul {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media(max-width:600px) {
+            .about .box {
+                flex-direction: column;
+            }
+            .about .box .year_company {
+                margin-bottom: 5px;
+            }
+            .interest ul {
+                grid-template-columns: repeat(1, 1fr);
+            }
+            .skills .box {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+            <div class="container">
+                <div class="left_side">
+            <div class="profileText">
+                <div class="imgBox">
+
+                    <!--<img src="C:\Users\SHRADDHA\Desktop\Scanned pics\Shraddha_id_Scan.jpg" alt="">-->
+                </div>
+                <!--<h2>Shraddha Jadhav<br> <span>Web Developer</span> </h2>-->
+            </div>
+                    <div class="PersonalDetails" style="color:white">
+                <h3 class="title">Personal Details</h3>
+             
+            </div>
+            <hr>
+            <div class="education">
+                <h3 class="title">Education Details</h3>
+                <h3 class="title">Graduation and Post Graduation Details :</h3>
+              
+                <h3 class="title">SSC And HSC Details :</h3>
+              
+            </div>
+
+            <div class="exp">
+                <h3 class="title">Experience</h3>
+                 <div class="box">
+                  
+                     
+                </div>
+                
+                 
+                    
+
+<!--                <ul>
+                    <li>
+                        <span class="text">Company name</span>
+                        <span class="percent">
+                            <div style="width: 90%;"></div>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="text">Designation</span>
+                        <span class="percent">
+                            <div style="width: 90%;"></div>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="text">Work experience</span>
+                        <span class="percent">
+                            <div style="width: 90%;"></div>
+                        </span>
+                    </li>
+                </ul>-->
+            </div>
+        </div>
+        <div class="right_side">
+            <div class="project_details">
+                <h2 class="title2">Project Details</h2>
+                <h3 class="title2">Project 1</h3>
+                
+                <h3 class="title2">Project 2</h3>
+                
+                
+            </div>
+
+            <div class="project_details">
+                <h2 class="title2">Skill Set</h2>
+                
+                     <h3 class="project_details">Languages</h3>
+                
+                     <h3 class="project_details">Hobbies</h3>
+                
+                     <h3 class="project_details">Achievements</h3>
+                
+                     <h3 class="project_details">Others</h3>
+                
+
+                
+              </div>
+                 <div class="project_details">
+                <h2 class="title2">Declaration</h2>
+                
+                </div>
+
+            </div>
+            </div>
+            
+               
+        
+</body>
+
+
+</html>
+

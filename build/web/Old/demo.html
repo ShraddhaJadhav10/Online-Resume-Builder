@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="colorlib.com">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Resume builder</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="colorlib-wizard-16/colorlib-wizard-16/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="colorlib-wizard-16/colorlib-wizard-16/css/style.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" >
+
+    <!--Validation-->
+        
+
+</head>
+
+<body>
+    
+
+    <div class="main">
+
+        <div class="container">
+            <h2>Online Resume Builder </h2>
+            <form method="POST" action="resume_insert.jsp" id="signup-form" class="signup-form">
+                <h3>
+                    <span class="title_text">Personal Details</span>
+                </h3>
+                <fieldset>
+                    <div class="fieldset-content">
+                        <div class="form-group">
+                            <label for="full_name" class="form-label">Full Name</label>
+                            <input type="text" name="txt_fname" id="fname" placeholder="Enter your full name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" name="txt_addr" id="addr" placeholder="Enter your address" required />
+                        </div>
+                        
+
+                        <div class="form-group">
+                            <label for="dob" class="form-label">DOB</label>
+                            <input type="date" name="txt_dob" id="dob" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="nationality" class="form-label">Nationality</label>
+                            <input type="text" name="txt_nationality" id="nationality" placeholder="Enter your nationality" required />
+                        </div>
+            
+                        <!--radio button code-->
+                        <div class="form-radio">
+                            <label for="gender" class="form-label">Gender</label>
+                            <div class="form-radio-item">
+                                <input type="radio" name="gender" value="male" id="male" checked="checked" />
+                                <label for="male">Male</label>
+                                <input type="radio" name="gender" value="female" id="female" />
+                                <label for="female">Female</label>
+                            </div>
+                        </div>
+<!--                        <div class="form-group">
+                            <label for="gender" class="form-label">Gender</label>
+                            <input type="text" name="txt_gender" id="gender" placeholder="Enter your gender" />
+                        </div>-->
+
+                        <div class="form-group">
+                            <label for="contact" class="form-label">Contact NO</label>
+                            <input type="text" name="txt_contact" id="contact" placeholder="Enter your contact no" required="" />
+                        </div>
+                        
+                       
+                    </div>
+                    
+                    <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" name="txt_email" id="Email" placeholder="Enter your email" required />
+                        </div>
+                    
+                </fieldset>
+<!--                <div class="fieldset-footer">
+                        <span>Step 1 of 6</span>
+                    </div>-->
+                <h3>
+                    <span class="title_text">Educational details</span>
+                </h3>
+                
+                <fieldset>
+                    <h5>
+                    <span class="title_text">Graduation and Post Graduation Details</span>
+                    </h5>
+                    <div class="fieldset-content">
+                       <div class="form-textarea">
+                            <label for="details1" class="form-label">Details 1</label>
+                            <textarea name="txt_details1" id="details1" placeholder="Enter your graduation and post graduation details.." required></textarea>
+                        </div>
+                        <h5>
+                    <span class="title_text">SSC And HSC Details</span>
+                    </h5>
+                        <div class="form-textarea">
+                            <label for="deatils2" class="form-label">Details 2</label>
+                            <textarea name="txt_details2" id="details2" placeholder="Enter your SSC And HSC Details.." required></textarea>
+                        </div>
+                    </div>
+
+                    
+
+                </fieldset>
+
+                <h3>
+                    <span class="title_text">Experience</span>
+                </h3>
+                <fieldset>
+                    
+                    <div class="fieldset-content">
+<!--                       <div class="form-radio">
+                            <label for="exp" class="form-label"></label>
+                            <div class="form-radio-item">
+                                <input type="radio" name="exp" value="fresher" id="fresher" checked="checked" />
+                                <label for="fresher">Fresher</label>
+                                <input type="radio" name="exp" value="experienced" id="experienced" />
+                                <label for="experienced">Experienced</label>
+                            </div>
+                        </div>-->
+                        <div class="form-group">
+                            <label for="Company_name" class="form-label">Comapny name</label>
+                            <input type="text" name="txt_companyname" id="c_name" placeholder="Enter your comapny name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="Designation" class="form-label">Designation</label>
+                            <input type="text" name="txt_designation" id="designation" placeholder="Enter your designation" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="work_experience" class="form-label">Work Experience</label>
+                            <input type="text" name="txt_workexp" id="work_exp" placeholder="Enter your work experience" required />
+                        </div>
+                    </div>
+<!--
+                    <div class="fieldset-footer">
+                        <span>Step 3 of 6</span>
+                    </div>-->
+                </fieldset>
+                
+                <h4>
+                    <span class="title_text">Project Details</span>
+                </h4>
+                <fieldset>
+                    <div class="fieldset-content">
+                        <div class="form-textarea">
+                            <label for="project1" class="form-label">Project 1</label>
+                            <textarea name="txt_p1" id="p1" placeholder="Project details" required></textarea>
+                        </div>
+                       <div class="form-textarea">
+                            <label for="project2" class="form-label">Project 2</label>
+                            <textarea name="txt_p2" id="p2" placeholder="Project details" required></textarea>
+                        </div>
+                       
+                    </div>
+<!--
+                    <div class="fieldset-footer">
+                        <span>Step 4 of 6</span>
+                    </div>-->
+                </fieldset>
+                 
+                 <h5>
+                    <span class="title_text">Skill Set</span>
+                </h5>
+                 <fieldset>
+                    <div class="fieldset-content">
+                        <div class="form-group">
+                            <label for="language" class="form-label">Language</label>
+                            <input type="text" name="txt_lang" id="Language" placeholder="Language you known.." required />
+                        </div>
+                       <div class="form-group">
+                            <label for="hobbies" class="form-label">Hobbies</label>
+                            <input type="text" name="txt_hobbies" id="Hobbies" placeholder="Enter your Hobbies.." required />
+                        </div>
+                        <div class="form-group">
+                            <label for="achievement" class="form-label">Achievement</label>
+                            <input type="text" name="txt_achievement" id="Achievement" placeholder="Enter your Achievement.." required />
+                        </div>
+                        <div class="form-group">
+                            <label for="othres" class="form-label">Others</label>
+                            <input type="text" name="txt_others" id="Others" placeholder="Enter your Extra Activities.." required />
+                        </div>
+                       
+                    </div>
+
+<!--                    <div class="fieldset-footer">
+                        <span>Step 4 of 6</span>
+                    </div>-->
+                </fieldset>
+                
+                <h5>
+                    <span class="title_text">Declaration</span>
+                </h5>
+                 <fieldset>
+                     <div class="form-textarea">
+                            <label for="declaration" class="form-label"></label>
+                            <textarea name="txt_declaration" id="Declaration" placeholder="" required></textarea>
+                        </div>
+<!--<!--                    <div class="fieldset-footer">
+                        <span>Step 4 of 6</span>
+                    </div>-->
+                   
+                     
+                 </fieldset>
+<!--              <div class="col-md-12 text-right">
+                <input type="submit" value="save" id="btn" class="btn btn-outline-info btn-rounded text-center" data-mdb-ripple-color="dark"/>
+                 </div>-->
+              <div class="fieldset-footer">
+                         <div class="col-md-12 text-right">
+            
+                             <button type="submit" class="btn btn-outline-info btn-rounded text-center" data-mdb-ripple-color="dark" name="btn_save" id="btn1" onclick="return formValidator()">Save</button> 
+                     </div>
+                    </div>
+            </form>>
+        </div>
+
+    </div>
+ 
+     JS 
+    <script src="colorlib-wizard-16/colorlib-wizard-16/vendor/jquery/jquery.min.js"></script>
+    <script src="colorlib-wizard-16/colorlib-wizard-16/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="colorlib-wizard-16/colorlib-wizard-16/vendor/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="colorlib-wizard-16/colorlib-wizard-16/vendor/jquery-steps/jquery.steps.min.js"></script>
+    <script src="colorlib-wizard-16/colorlib-wizard-16/vendor/minimalist-picker/dobpicker.js"></script>
+    <script src="colorlib-wizard-16/colorlib-wizard-16/vendor/jquery.pwstrength/jquery.pwstrength.js"></script>
+    <script src="colorlib-wizard-16/colorlib-wizard-16/js/main.js"></script>
+</body>
+
+</html>
